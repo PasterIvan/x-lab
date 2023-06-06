@@ -1,16 +1,19 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+import { addressAPI } from "../../api/api";
 import { SearchParamsType } from "../../api/types";
 import { requestStatus } from "../../enums/requestStatus";
 
 import { setAppStatus } from "./appReducer";
 
 // THUNKS
-export const vacancyTC = createAsyncThunk(
+export const addressTC = createAsyncThunk(
   "vacancy",
   async (params: SearchParamsType, { dispatch }) => {
     dispatch(setAppStatus(requestStatus.LOADING));
+    const res = await addressAPI.getAddress(params);
 
+    dispatch(setSuggestions(res.data));
     try {
       dispatch(setAppStatus(requestStatus.SUCCEEDED));
     } catch (err) {
@@ -22,10 +25,16 @@ export const vacancyTC = createAsyncThunk(
 
 const slice = createSlice({
   name: "vacancy",
-  initialState: {},
-  reducers: {},
+  initialState: {
+    suggestions: [] as any[],
+  },
+  reducers: {
+    setSuggestions(state, action: PayloadAction<{ suggestions: any[] }>) {
+      state.suggestions = action.payload.suggestions;
+    },
+  },
 });
 
 export const searchReducer = slice.reducer;
 
-export const {} = slice.actions;
+export const { setSuggestions } = slice.actions;

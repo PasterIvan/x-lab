@@ -1,5 +1,4 @@
 export type SearchParamsType = {
-  page?: string;
-  count?: string;
-  keyword?: string;
+  query?: string;
+  locations?: any[];
 };

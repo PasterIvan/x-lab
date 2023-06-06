@@ -3,10 +3,13 @@
   justify-content: space-between;
   align-items: center;
   background: #4F27BF;
-  padding: 16px 32px;
+  //position: sticky;
+  //top: 0;
   .logo {
     display: flex;
     align-items: center;
+    margin: 16px 32px;
+
     span {
       font-family: 'Montserrat', sans-serif;
       font-style: normal;
@@ -14,12 +17,13 @@
       font-size: 20px;
       line-height: 24px;
       color: #FFFFFF;
-      margin: 0 24px;
+      margin-left: 24px;
     }
   }
   .user {
     display: flex;
     align-items: center;
+    margin: 16px 32px;
     span {
       font-family: 'Montserrat', sans-serif;
       font-style: normal;

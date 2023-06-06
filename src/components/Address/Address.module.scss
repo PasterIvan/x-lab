@@ -1,56 +1,57 @@
+@import 'src/styles/mixin.scss';
+@import 'src/styles/variables.scss';
+
 .container {
   margin: 32px 32px 100px;
+
   .title {
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 26px;
-    line-height: 32px;
-    color: #1C1C1E;
+    @include text(700, 26px, 32px, $textColor);
   }
+
   p {
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    color: #1C1C1E;
+    @include text(500, 20px, 24px, $textColor);
     margin: 16px 0 24px;
   }
+
   .search {
     display: flex;
     gap: 24px;
     input {
+      @include text(500, 20px, 24px, $textColor);
       width: 100%;
-      border: 3px solid #4F27BF;
+      border: 3px solid $secondColor;
       border-radius: 10px;
-      padding: 20px 24px;
-      font-family: 'Montserrat', sans-serif;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 20px;
-      line-height: 24px;
-      color: #1C1C1E;
+      padding: 20px 21px;
+
       &:invalid {
         background: rgba(255, 0, 0, 0.22);
       }
+
     }
 
     button {
+      @include text(700, 26px, 32px, $textButtonColor);
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 16px;
-      padding: 0 40px;
-      background: #4F27BF;
+      padding: 19px 40px;
+      background: $secondColor;
       border-radius: 10px;
       border: none;
-      font-family: 'Montserrat', sans-serif;
-      font-style: normal;
-      font-weight: 700;
-      font-size: 26px;
-      line-height: 32px;
-      color: #FFFFFF;
 
+    }
+
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    .search {
+      flex-direction: column;
+
+      input{
+        width: auto;
+      }
     }
   }
 }

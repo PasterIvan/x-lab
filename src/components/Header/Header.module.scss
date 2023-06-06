@@ -1,38 +1,44 @@
+@import 'src/styles/mixin.scss';
+@import 'src/styles/variables.scss';
+
 .container{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #4F27BF;
-  //position: sticky;
-  //top: 0;
+  background: $secondColor;
+
   .logo {
     display: flex;
     align-items: center;
     margin: 16px 32px;
 
     span {
-      font-family: 'Montserrat', sans-serif;
-      font-style: normal;
-      font-weight: 700;
-      font-size: 20px;
-      line-height: 24px;
-      color: #FFFFFF;
+      @include text(700, 20px, 24px, $textButtonColor);
       margin-left: 24px;
     }
+
   }
+
   .user {
     display: flex;
     align-items: center;
     margin: 16px 32px;
+
     span {
-      font-family: 'Montserrat', sans-serif;
-      font-style: normal;
-      font-weight: 700;
-      font-size: 20px;
-      line-height: 24px;
-      color: #FFFFFF;
+      @include text(700, 20px, 24px, $textButtonColor);
       margin-left: 16px;
     }
+
   }
 
+}
+
+@media (max-width: 768px) {
+  .container {
+    .user, .logo {
+      span {
+        display: none;
+      }
+    }
+  }
 }

@@ -1,3 +1,14 @@
+@import 'src/styles/mixin.scss';
+@import 'src/styles/variables.scss';
+.menuButton {
+  @include text(700, 20px, 24px, $textButtonColor);
+  position: fixed;
+  top: 26px;
+  left: 45%;
+  right: 55%;
+  display: none;
+  cursor: pointer;
+}
 .menuContainer {
   min-width: 268px;
   height: 100vh;
@@ -5,61 +16,74 @@
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 0 5px rgba(2, 0, 96, 0.25);
   overflow: auto;
+  z-index: 100;
+  transition: 1s;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
   .menu {
+    @include text(700, 20px, 24px, $textColor);
     width: 100%;
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 24px;
-    color: #1C1C1E;
     margin-bottom: 32px;
   }
+
   .links {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 40px;
     margin-bottom: 150px;
+
     .link {
       display: flex;
       text-decoration: none;
+
       img {
         margin-right: 16px;
       }
+
       div {
+        @include text(600, 20px, 24px, $textColor);
         align-self: center;
-        font-family: 'Montserrat', sans-serif;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 24px;
-        color: #1C1C1E;
+        width: 100%;
       }
+
     }
+
     .linkActive {
       display: flex;
       text-decoration: none;
       width: 100%;
+
       &:after {
         content: "";
         width: 3px;
-        background: #4F27BF;
+        background: $secondColor;
         border-radius: 3px 0 0 3px;
       }
+
       img {
         margin-right: 16px;
       }
+
       div {
+        @include text(600, 20px, 24px, $textColor);
         width: 100%;
         align-self: center;
-        font-family: 'Montserrat', sans-serif;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 24px;
-        color: #1C1C1E;
       }
+
     }
+  }
+}
+@media (max-width: 768px) {
+  .menuButton {
+    display: block;
+  }
+  .menuContainer {
+    position: absolute;
+    background: rgb(255, 255, 255);
+    left: -350px;
   }
 }

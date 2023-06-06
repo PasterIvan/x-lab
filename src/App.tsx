@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 import styles from "./App.module.scss";
 import { Address } from "./components/Address/Address";
@@ -18,8 +18,7 @@ export const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="address" element={<Address />} />
-            {/* <Route path="404" element={<div />} /> */}
-            {/* <Route path="*" element={<Navigate to="/404" />} /> */}
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>
       </div>

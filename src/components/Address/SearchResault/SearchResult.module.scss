@@ -1,3 +1,6 @@
+@import 'src/styles/mixin.scss';
+@import 'src/styles/variables.scss';
+
 .container {
   margin-top: 32px;
   padding: 24px;
@@ -5,23 +8,14 @@
   border-radius: 10px;
 
   .title{
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 26px;
-    line-height: 32px;
-    color: #000000;
+    @include text(700, 26px, 32px, #000000);
     padding-bottom: 16px;
   }
 
   .item {
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    color: #000000;
+    @include text(500, 20px, 24px, #000000);
     padding: 16px 0;
     border-top: 1px solid #D7D7D7;
   }
+
 }

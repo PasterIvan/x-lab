@@ -18,6 +18,7 @@ export const ChildLinks: React.FC<ChildLinksProps> = ({ link }) => {
 
   return (
     <div key={link.label}>
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
       <div
         className={open ? styles.linkOpen : styles.link}
         onClick={() => setOpen(!open)}
